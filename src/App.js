@@ -37,9 +37,9 @@ class App extends React.Component {
 
   deleteTask = (e) => {
     e.preventDefault();
-    console.log(e.target.id);
+    const id = e.target.id;
     this.setState({
-      tasks: this.state.tasks.filter(task => task.id !== e.target.id)
+      tasks: this.state.tasks.filter(task => task.id !== id)
     })
   }
   
