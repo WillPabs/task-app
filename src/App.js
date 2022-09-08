@@ -20,8 +20,6 @@ class App extends React.Component {
   }
   
   render() {
-    
-
     return (
       <div className="App">
         <h2>Welcome to Task App</h2>
@@ -31,12 +29,12 @@ class App extends React.Component {
         </div>
         <div className="tasks-list">
           {this.state.tasks.length > 0 ?
-            this.state.tasks.map((task) => {
+            this.state.tasks.map((task, i) => {
             return (
-              <Overview title={task}/>
+              <Overview key={i} title={task}/>
             )}) :
             (
-              <Overview title='Some task'/>
+              <Overview title='No Tasks'/>
             )
           }
         </div>
