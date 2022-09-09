@@ -38,6 +38,7 @@ class App extends React.Component {
   deleteTask = (e) => {
     e.preventDefault();
     const id = e.target.id;
+    console.log(id);
     this.setState({
       tasks: this.state.tasks.filter(task => task.id !== id)
     })
@@ -60,7 +61,7 @@ class App extends React.Component {
             Add Task
           </button>
         </form>
-        <Overview tasks={tasks} onDelete={this.deleteTask}/>
+        <Overview tasks={tasks} onDelete={this.deleteTask} onEdit={this.editTask}/>
       </div>
     );
   }

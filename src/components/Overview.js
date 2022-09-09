@@ -1,22 +1,20 @@
 import React from "react";
+import Task from "./Task";
 
 const Overview = (props) => {
-    const { tasks, onDelete, onEdit } = props;
+    const { tasks, onDelete } = props;
 
     return (
         <ul>
             {tasks.map((task, i) => {
                 return (
-                    <form key={task.id} onSubmit={onDelete} id={task.id}>
-                        <p>{i+1}. <span id={task.text}>{task.text}</span></p>
-                        <button type="button" onClick={onEdit}>
-                            Edit
-                        </button>
-                        <button type="submit">
-                            Delete
-                        </button>
-                    </form>
-
+                    <Task 
+                        key={task.id} 
+                        onDelete={onDelete} 
+                        text={task.text} 
+                        id={task.id}
+                        index={i}
+                    />
                 )
             })}
         </ul>
