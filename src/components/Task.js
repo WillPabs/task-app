@@ -7,6 +7,8 @@ class Task extends React.Component {
             text: props.text,
             id: props.id,
             isEditing: false,
+            onDelete: props.onDelete,
+            index: props.index,
         }
     };
 
@@ -42,13 +44,14 @@ class Task extends React.Component {
           task: {
             text: e.target.value,
             id: this.state.id,
+            index: this.state.index,
           },
         });
       };
 
     render() {
-        const { id, text, index, onDelete } = this.props;
-        const isEditing = this.state.isEditing;
+        const { id, index, onDelete } = this.props;
+        const { text, isEditing } = this.state;
         let editButton;
         if (isEditing) {
             editButton = <button type="button" onClick={this.resubmitTask}>Resubmit</button>
